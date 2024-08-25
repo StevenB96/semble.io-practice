@@ -20,29 +20,40 @@ const MainPage = ({ }: MainPageProps) => {
   const handleUpdateItemData = (updateForm: UpdateForm | null) => {
     if (updateForm && itemData) {
       setPosts(prevPosts => {
-        if (updateForm.type === ContentType.Post) {
-          prevPosts.map(post =>
-            post.id === updateForm.id
-              ? { ...post, title: updateForm.title, text: updateForm.text }
-              : post
-          )
-        } else {
-          prevPosts.map(post => {
-            const comments: Comment[] = post.comments;
-            comments.map(
-              comment => {
-                post.id === updateForm.id
-                  ? { ...post, title: updateForm.title, text: updateForm.text }
-                  : post
-              })
-          })
-        }
+        return prevPosts.map(post => {
+          if (updateForm.type === ContentType.Post && post.id === updateForm.id) {
+            // Update post
+            return {
+              ...post,
+              title: updateForm.title,
+              body: updateForm.text
+            };
+          }
 
-        return prevPosts;
+          if (updateForm.type === ContentType.Comment && post.comments) {
+            // Update comments if the post ID matches and comments are present
+            return {
+              ...post,
+              comments: post.comments.map(comment =>
+                comment.id === updateForm.id
+                  ? {
+                    ...comment,
+                    name: updateForm.title,
+                    body: updateForm.text
+                  } // Assuming comments have a 'text' field to update
+                  : comment
+              )
+            };
+          }
+
+          return post; // Return the post unchanged if no updates are needed
+        });
       });
+      updateItemData(null);
+    } else {
+      updateItemData(updateForm);
     }
-    updateItemData(updateForm);
-  }
+  };
 
   useEffect(() => {
     const fetchPosts = async () => {
