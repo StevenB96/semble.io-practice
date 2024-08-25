@@ -12,7 +12,10 @@ const Card = (
 
   return (
     <div className="Card">
-      <div onClick={
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+      }} onClick={
         () => handleUpdateItemData(
           {
             id: post.id,
@@ -22,7 +25,12 @@ const Card = (
           }
         )
       }>
-        <h1 style={{ fontSize: '100%' }}>{post.id}. {post.title}</h1>
+        <h1
+          style={{
+            fontSize: '100%',
+            width: '100%',
+          }}>{post.id}. {post.title}
+        </h1>
         <p style={{ fontSize: '80%', }}>{post.body}</p>
       </div>
       <div className="SubCardContainer">
