@@ -1,0 +1,40 @@
+:root {
+  --cardGap: 10px;
+}
+
+.Card {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: var(--cardGap);
+  margin-right: 0px;
+  padding: var(--cardGap);
+  box-sizing: border-box;
+  text-align: left;
+  width: calc(50% - var(--cardGap));
+  box-sizing: border-box;
+  border: solid;
+  background-color:navajowhite;
+  cursor: pointer;
+}
+
+.SubCardContainer{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  flex-direction: row;
+  width: '100%';
+}
+
+.SubCard {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  margin: var(--cardGap);
+  margin-left: 0px;
+  padding: var(--cardGap);
+  width: calc(50% - var(--cardGap));
+  box-sizing: border-box;
+  border: solid;
+  background-color:bisque;
+}
