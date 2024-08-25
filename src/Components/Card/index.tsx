@@ -3,7 +3,11 @@ import './Card.css';
 import { Post, Comment } from "../../Types";
 import { ContentType } from "../../Enums";
 
-const Card = (props: { post: Post, handleUpdateItemData: Function }) => {
+const Card = (
+  props: {
+    post: Post,
+    handleUpdateItemData: Function
+  }) => {
   const { post, handleUpdateItemData } = props;
 
   return (
@@ -22,15 +26,18 @@ const Card = (props: { post: Post, handleUpdateItemData: Function }) => {
         <p style={{ fontSize: '80%', }}>{post.body}</p>
       </div>
       <div className="SubCardContainer">
-        {post.comments?.map((comment: Comment, index: number) => {
+        {post.comments?.map((
+          comment: Comment,
+          index: number
+        ) => {
           return (
             <div
               key={comment.id}
               className="SubCard"
               onClick={
                 () => handleUpdateItemData(
-                  { 
-                    id: comment.id, 
+                  {
+                    id: comment.id,
                     type: ContentType.Comment,
                     title: comment.name,
                     text: comment.body

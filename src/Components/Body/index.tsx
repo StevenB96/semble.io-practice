@@ -18,12 +18,16 @@ const Body: FC<BodyProps> = ({ posts, handleUpdateItemData, }) => {
   return (
     <div className="Body">
       {
-        posts?.map((post: Post, index: number) => {
-          return (<Card
-            key={post.id}
-            post={post}
-            handleUpdateItemData={handleUpdateItemData}
-          />
+        posts.map((
+          post: Post,
+          index: number
+        ) => {
+          return (
+            <Card
+              key={post.id}
+              post={post}
+              handleUpdateItemData={handleUpdateItemData}
+            />
           )
         })}
     </div>

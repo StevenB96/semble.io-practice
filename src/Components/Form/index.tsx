@@ -13,8 +13,8 @@ const Form: FC<{
 }) => {
   const isPost: boolean = itemData.type === ContentType.Post;
 
-  const [title, setTitle] = useState(itemData.title || '');
-  const [text, setText] = useState(itemData.text || '');
+  const [title, setTitle] = useState<string>(itemData.title || '');
+  const [text, setText] = useState<string>(itemData.text || '');
 
   /**
    * Closes the update form.
