@@ -2,9 +2,9 @@
   text-align: center;
   background-color:aquamarine;
   position: absolute;
-  top: 50%;
+  top: 10%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -0%);
   white-space: pre-wrap;
   box-sizing: border-box;
   border: solid;
